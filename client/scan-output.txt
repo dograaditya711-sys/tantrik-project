@@ -1,0 +1,96 @@
+﻿
+src\components\temple-night\templeNightRenderer.js:1074:  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, DPR_CAP));
+src\components\temple-night\templeNightRenderer.js:2337:  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, DPR_CAP) 
+* PERF.scale);
+src\components\temple-night\templeNightRenderer.js:2353:  if (WORLD.embers) WORLD.embers.material.uniforms.uSize.value = h 
+* renderer.getPixelRatio() * .5;
+src\components\temple-night\templeNightRenderer.js:2354:  if (WISP.mesh) WISP.mesh.material.uniforms.uPx.value = h * 
+renderer.getPixelRatio();
+src\pages\AdminPanel.jsx:46:        const { data } = await axios.get('http://localhost:5000/api/admin/stats', getConfig());
+src\pages\AdminPanel.jsx:49:        const { data } = await axios.get('http://localhost:5000/api/admin/tantrik', 
+getConfig());
+src\pages\AdminPanel.jsx:52:        const { data } = await axios.get('http://localhost:5000/api/admin/users', getConfig());
+src\pages\AdminPanel.jsx:55:        const { data } = await axios.get('http://localhost:5000/api/admin/poojas', 
+getConfig());
+src\pages\AdminPanel.jsx:58:        const { data } = await axios.get('http://localhost:5000/api/admin/pooja-bookings', 
+getConfig());
+src\pages\AdminPanel.jsx:61:        const { data } = await axios.get('http://localhost:5000/api/admin/withdrawals', 
+getConfig());
+src\pages\AdminPanel.jsx:64:        const { data } = await axios.get('http://localhost:5000/api/admin/products', 
+getConfig());
+src\pages\AdminPanel.jsx:67:        const { data } = await axios.get('http://localhost:5000/api/admin/blogs', getConfig());
+src\pages\AdminPanel.jsx:97:        await axios.put(`http://localhost:5000/api/admin/tantrik/${editId}`, payload, 
+getConfig());
+src\pages\AdminPanel.jsx:100:        await axios.post('http://localhost:5000/api/admin/tantrik', payload, getConfig());
+src\pages\AdminPanel.jsx:113:      await axios.delete(`http://localhost:5000/api/admin/tantrik/${id}`, getConfig());
+src\pages\AdminPanel.jsx:140:      await axios.put(`http://localhost:5000/api/admin/users/${id}/block`, {}, getConfig());
+src\pages\AdminPanel.jsx:157:      await axios.post('http://localhost:5000/api/admin/poojas', formData, {
+src\pages\AdminPanel.jsx:171:      await axios.put(`http://localhost:5000/api/admin/pooja-bookings/${id}`, { status: 
+newStatus }, getConfig());
+src\pages\AdminPanel.jsx:181:      await axios.put(`http://localhost:5000/api/admin/withdrawals/${id}`, { status }, 
+getConfig());
+src\pages\AdminPanel.jsx:200:      await axios.post('http://localhost:5000/api/admin/products', formData, {
+src\pages\AdminPanel.jsx:222:      await axios.post('http://localhost:5000/api/admin/blogs', formData, {
+src\pages\BlogDetails.jsx:14:        const { data } = await axios.get(`http://localhost:5000/api/users/blogs/${id}`);
+src\pages\Blogs.jsx:13:        const { data } = await axios.get('http://localhost:5000/api/users/blogs');
+src\pages\Chat.jsx:3:import { io } from 'socket.io-client';
+src\pages\Chat.jsx:47:      const { data } = await axios.post('http://localhost:5000/api/users/session/start', { 
+tantrikId, type: 'chat' }, config);
+src\pages\Chat.jsx:53:        const historyRes = await 
+axios.get(`http://localhost:5000/api/users/session/${data.sessionId}/messages`, config);
+src\pages\Chat.jsx:79:      const { data } = await axios.put(`http://localhost:5000/api/users/session/end/${sessionId}`, 
+{}, config);
+src\pages\Chat.jsx:108:      await axios.post('http://localhost:5000/api/users/review', {
+src\pages\Chat.jsx:127:      const { data } = await axios.post('http://localhost:5000/api/users/generate-call-token', { 
+channelName }, config);
+src\pages\Chat.jsx:196:        const { data } = await axios.get(`http://localhost:5000/api/users/tantriks`);
+src\pages\Chat.jsx:207:      socketRef.current = io('http://localhost:5000');
+src\pages\Dashboard.jsx:28:        const profileRes = await axios.get('http://localhost:5000/api/users/profile', config);
+src\pages\Dashboard.jsx:35:        const sessionsRes = await axios.get('http://localhost:5000/api/users/my-sessions', 
+config);
+src\pages\Dashboard.jsx:39:        const ordersRes = await axios.get('http://localhost:5000/api/users/my-orders', config);
+src\pages\Dashboard.jsx:43:        const poojaRes = await axios.get('http://localhost:5000/api/users/my-poojas', config);
+src\pages\FindTantrik.jsx:23:          
+`http://localhost:5000/api/users/tantriks?search=${searchQuery}&specialization=${selectedCategory}`
+src\pages\FreeKundli.jsx:17:      const { data } = await axios.post('http://localhost:5000/api/users/generate-kundli', 
+formData);
+src\pages\Login.jsx:16:      const response = await axios.post('http://localhost:5000/api/users/login', {
+src\pages\Poojas.jsx:16:        const { data } = await axios.get('http://localhost:5000/api/users/poojas'); // Assuming 
+route exists
+src\pages\Poojas.jsx:39:        'http://localhost:5000/api/users/book-pooja', 
+src\pages\Register.jsx:20:      const response = await axios.post('http://localhost:5000/api/users/register', formData);
+src\pages\Shop.jsx:22:        const { data } = await axios.get('http://localhost:5000/api/users/products');
+src\pages\Shop.jsx:54:        'http://localhost:5000/api/users/order', 
+src\pages\TantrikDashboard.jsx:3:import { io } from 'socket.io-client';
+src\pages\TantrikDashboard.jsx:54:        const profileRes = await 
+axios.get('http://localhost:5000/api/users/tantrik-profile', config);
+src\pages\TantrikDashboard.jsx:68:        const historyRes = await 
+axios.get('http://localhost:5000/api/users/my-sessions', config);
+src\pages\TantrikDashboard.jsx:77:    socketRef.current = io('http://localhost:5000');
+src\pages\TantrikDashboard.jsx:131:      const { data } = await 
+axios.post('http://localhost:5000/api/users/generate-call-token', { channelName: incomingCall.channelName }, config);
+src\pages\TantrikDashboard.jsx:171:      const { data } = await 
+axios.put('http://localhost:5000/api/users/tantrik-online-status', {}, config);
+src\pages\TantrikDashboard.jsx:185:      const { data } = await 
+axios.post('http://localhost:5000/api/users/request-withdrawal', { amount: Number(withdrawAmount) }, config);
+src\pages\TantrikDashboard.jsx:204:        const { data } = await 
+axios.put('http://localhost:5000/api/users/tantrik-settings', payload, config);
+src\pages\TantrikLogin.jsx:14:      const { data } = await axios.post('http://localhost:5000/api/users/tantrik-login', { 
+email, password });
+src\pages\TantrikProfile.jsx:17:        const { data: tantrikData } = await 
+axios.get(`http://localhost:5000/api/users/tantrik/${id}`);
+src\pages\TantrikProfile.jsx:21:        const { data: reviewsData } = await 
+axios.get(`http://localhost:5000/api/users/reviews/${id}`);
+src\pages\TantrikTest.jsx:3:import { io } from 'socket.io-client';
+src\pages\TantrikTest.jsx:13:    socketRef.current = io('http://localhost:5000');
+src\pages\UserProfile.jsx:33:        const profileRes = await axios.get('http://localhost:5000/api/users/profile', config);
+src\pages\UserProfile.jsx:39:        const txRes = await axios.get('http://localhost:5000/api/users/wallet/transactions', 
+config);
+src\pages\UserProfile.jsx:53:      const { data } = await axios.put('http://localhost:5000/api/users/profile', { name, 
+phone }, config);
+src\pages\UserProfile.jsx:72:      await axios.put('http://localhost:5000/api/users/profile', { password }, config);
+src\pages\Wallet.jsx:33:        'http://localhost:5000/api/users/create-payment-order', 
+src\pages\Wallet.jsx:40:        key: 'rzp_test_TthxleBY9T3kvd', // Test API Key
+src\pages\Wallet.jsx:50:              'http://localhost:5000/api/users/verify-payment',
+
+

@@ -1,0 +1,65 @@
+# ==========================================
+# 🎯 SECURITY: Environment files — KABHI COMMIT NA KARO
+# ==========================================
+.env
+.env.local
+.env.*.local
+
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules
+.pnp
+.pnp.js
+
+# ==========================================
+# Build output
+# ==========================================
+dist
+dist-ssr
+build
+*.local
+
+# ==========================================
+# 🎯 Capacitor / Android build artifacts
+# ==========================================
+android/.gradle
+android/build
+android/app/build
+android/.idea
+android/local.properties
+android/capacitor-cordova-android-plugins/
+android/app/src/main/assets/public
+android/app/src/main/assets/capacitor.config.json
+
+# ==========================================
+# Logs
+# ==========================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# Editor / OS
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ==========================================
+# Cache
+# ==========================================
+.cache
+.parcel-cache
+.vite
