@@ -244,6 +244,8 @@ setInterval(async () => {
 }, CHECK_INTERVAL_MS);
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
+const HOST = '0.0.0.0'; // 👈 Yeh line lazmi add karein
+
+server.listen(PORT, HOST, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
 });

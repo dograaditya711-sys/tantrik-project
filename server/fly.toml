@@ -1,0 +1,20 @@
+# fly.toml app configuration file
+app = "tantrik-project"
+primary_region = "ams" # Ya jo bhi region aapne select kiya tha
+
+[build]
+  # Kyunki yeh file server folder ke andar hai
+  # Fly.io ko batana hoga ki Dockerfile yahin hai
+
+[http_service]
+  internal_port = 5000 # 👈 Aapka port 5000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
