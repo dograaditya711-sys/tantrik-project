@@ -1,5 +1,9 @@
 {
   "appId": "com.tantratalk.app",
   "appName": "TantraTalk",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "url": "https://tantrik-project.vercel.app",
+    "cleartext": true
+  }
 }
