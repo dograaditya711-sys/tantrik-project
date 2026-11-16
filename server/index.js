@@ -11,15 +11,35 @@ const morgan = require('morgan');
 const connectDB = require('./config/db');
 const Session = require('./models/Session');
 const { endSessionAndBill } = require('./utils/sessionBilling');
- // 🎯 Naya Import
-const Tantrik = require('./models/Tantrik'); // 🎯 Naya Import
+const Tantrik = require('./models/Tantrik'); 
+const admin = require('./utils/firebaseAdmin'); // 🎯 Firebase Admin import kiya gaya hai
 
 dotenv.config();
 connectDB();
 
 const app = express();
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
-app.use(cors());
+
+// 🎯 CORS UPDATE: Specific URLs allow kiye gaye hain
+const allowedOrigins = [
+  'https://tantrik-project.vercel.app', // Aapka Vercel Frontend URL
+  'http://localhost:5173'               // Local testing ke liye
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+}));
+
 app.use(express.json());
 
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: { message: 'Too many attempts.' } });
@@ -50,11 +70,11 @@ app.get('/', (req, res) => {
 });
 
 const server = http.createServer(app);
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
+// 🎯 Socket.io CORS UPDATE
 const io = new Server(server, {
     cors: { 
-        origin: CLIENT_URL, 
+        origin: allowedOrigins, // Yahan bhi array pass kiya
         methods: ['GET', 'POST'],
         credentials: true 
     }
@@ -133,7 +153,7 @@ io.on('connection', (socket) => {
         // 2. Chat Message
         await saveSystemMessage(socket.data.userId, data.receiverId, `📞 ${data.senderName} initiated a voice call`);
 
-        // 🎯 3. FCM Push Notification (Agar app background mein hai)
+        // 🎯 3. FCM Push Notification
         try {
             const tantrik = await Tantrik.findById(data.receiverId);
             if (tantrik && tantrik.fcmToken) {
@@ -244,7 +264,7 @@ setInterval(async () => {
 }, CHECK_INTERVAL_MS);
 
 const PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0'; // 👈 Yeh line lazmi add karein
+const HOST = '0.0.0.0'; 
 
 server.listen(PORT, HOST, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
